@@ -12,7 +12,15 @@ class SmileWidgetPage extends StatefulWidget {
 class _SmileWidgetPageState extends State<SmileWidgetPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+       home: Scaffold (
+         appBar: AppBar(
+           title: Text('Practice 4'),
+         ),
+         body: Container (
+         ),
+       ),
+    );
   }
 }
 
