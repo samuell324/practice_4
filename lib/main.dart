@@ -18,6 +18,18 @@ class _SmileWidgetPageState extends State<SmileWidgetPage> {
            title: Text('Practice 4'),
          ),
          body: Container (
+           color: Colors.grey,
+           padding: EdgeInsets.symmetric(horizontal: 80, vertical: 80),
+           child: LayoutBuilder (
+             builder: (_, constraints) => Container (
+               width: constraints.widthConstraints().maxWidth,
+               height: constraints.heightConstraints().maxHeight,
+               color: Colors.yellow,
+               child: CustomPaint(
+                 size: Size(50,50),
+               ),
+             )
+           ),
          ),
        ),
     );
