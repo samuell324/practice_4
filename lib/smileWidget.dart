@@ -44,7 +44,8 @@ class MainWidget extends StatefulWidget {
   _MainWidgetState createState() => _MainWidgetState();
 }
 
-class _MainWidgetState extends State<MainWidget> with SingleTickerProviderStateMixin{
+class _MainWidgetState extends State<MainWidget>
+    with SingleTickerProviderStateMixin {
   var tapValue = 0;
   static AnimationController animController;
   var _radioValue;
@@ -105,6 +106,15 @@ class _MainWidgetState extends State<MainWidget> with SingleTickerProviderStateM
               height: 250,
               child: CustomPaint(
                 painter: SmileyPainter(),
+                child: RotationTransition(
+                  turns: Tween(
+                    begin: 0.0,
+                    end: 0.5,
+                  ).animate(animController),
+                  child: CustomPaint(
+                    painter: Smile(),
+                  ),
+                ),
               )),
         ],
       ),
