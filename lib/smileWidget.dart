@@ -44,9 +44,19 @@ class MainWidget extends StatefulWidget {
   _MainWidgetState createState() => _MainWidgetState();
 }
 
-class _MainWidgetState extends State<MainWidget> {
+class _MainWidgetState extends State<MainWidget> with SingleTickerProviderStateMixin{
   var tapValue = 0;
+  static AnimationController animController;
   var _radioValue;
+
+  @override
+  void initState() {
+    animController = AnimationController(
+      duration: const Duration(milliseconds: 400),
+      vsync: this,
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +75,10 @@ class _MainWidgetState extends State<MainWidget> {
                           onTap: () => setState(() {
                             if (tapValue == 0) {
                               tapValue++;
+                              animController.forward();
                             } else {
                               tapValue--;
+                              animController.reverse();
                             }
                           }),
                           child: Container(
