@@ -116,6 +116,20 @@ class _MainWidgetState extends State<MainWidget>
                   ),
                 ),
               )),
+          Row (
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Image.asset('assets/images/asset1.png'),
+              ),
+              Expanded(
+                child: Image.asset('assets/images/asset2.png'),
+              ),
+              Expanded(
+                child: Image.asset('assets/images/asset3.png'),
+              ),
+            ],
+          )
         ],
       ),
     );
