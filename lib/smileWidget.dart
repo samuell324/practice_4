@@ -15,6 +15,7 @@ class SmileyPainter extends CustomPainter {
     canvas.drawCircle(
         Offset(center.dx + radius / 2, center.dy - radius / 2), 10, Paint());
   }
+
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
@@ -31,8 +32,10 @@ class Smile extends CustomPainter {
       canvas.drawArc(Rect.fromCircle(center: center, radius: radius / 2), 0,
           Math.pi, false, smilePaint);
     }
+
     drawMouth();
   }
+
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
 
@@ -42,9 +45,19 @@ class MainWidget extends StatefulWidget {
 }
 
 class _MainWidgetState extends State<MainWidget> {
-  
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Column(
+        children: [
+          Container(
+              width: 300,
+              height: 250,
+              child: CustomPaint(
+                painter: SmileyPainter(),
+              )),
+        ],
+      ),
+    );
   }
 }
