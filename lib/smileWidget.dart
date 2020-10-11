@@ -45,35 +45,49 @@ class MainWidget extends StatefulWidget {
 }
 
 class _MainWidgetState extends State<MainWidget> {
+  var tapValue = 0;
+  var _radioValue;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: [
           Container(
-            height: 150,
-            child: Padding (
-              padding: EdgeInsets.all(20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded (
-                    child: Container (
-                      child: Image.asset('assets/images/enableAsset.png'),
-                    ),
-                  ),
-                  SizedBox (
-                    width: 50,
-                  ),
-                  Expanded (
-                    child: Container (
-                      child: Image.asset('assets/images/smileButton.png'),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
+              height: 150,
+              child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () => setState(() {
+                            if (tapValue == 0) {
+                              tapValue++;
+                            } else {
+                              tapValue--;
+                            }
+                          }),
+                          child: Container(
+                            child: Image.asset('assets/images/enableAsset.png'),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                          child: Container(
+                            child: Image.asset(tapValue == 1
+                                ? 'assets/images/sadButton.png'
+                                : 'assets/images/smileButton.png'),
+                          ),
+                        ),
+                      )
+                    ],
+                  ))),
           Container(
               width: 300,
               height: 250,
