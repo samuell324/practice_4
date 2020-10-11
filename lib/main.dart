@@ -18,13 +18,6 @@ class _SmileWidgetPageState extends State<SmileWidgetPage> {
             appBar: AppBar(
               title: Text('Practice 4'),
             ),
-            body: Container(
-              color: Colors.grey,
-              height: 800,
-              width: 500,
-              child: CustomPaint(
-                painter: SmileyPainter(),
-              ),
-            )));
+            body: MainWidget()));
   }
 }
