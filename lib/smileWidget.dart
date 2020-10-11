@@ -116,17 +116,44 @@ class _MainWidgetState extends State<MainWidget>
                   ),
                 ),
               )),
-          Row (
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                child: Image.asset('assets/images/asset1.png'),
+                child: GestureDetector(
+                  onTap: () => setState(() {
+                    print(_radioValue);
+                    _radioValue = 0;
+                  }),
+                  child: Container(
+                      child: Image.asset(_radioValue == 0
+                          ? 'assets/images/asset1.png'
+                          : 'assets/images/asset1_en.png')),
+                ),
               ),
               Expanded(
-                child: Image.asset('assets/images/asset2.png'),
+                child: GestureDetector(
+                  onTap: () => setState(() {
+                    _radioValue = 1;
+                    print(_radioValue);
+                  }),
+                  child: Container(
+                      child: Image.asset(_radioValue == 1
+                          ? 'assets/images/asset2.png'
+                          : 'assets/images/asset2_en.png')),
+                ),
               ),
               Expanded(
-                child: Image.asset('assets/images/asset3.png'),
+                child: GestureDetector(
+                  onTap: () => setState(() {
+                    _radioValue = 2;
+                    print(_radioValue);
+                  }),
+                  child: Container(
+                      child: Image.asset(_radioValue == 2
+                          ? 'assets/images/asset3.png'
+                          : 'assets/images/asset3_en.png')),
+                ),
               ),
             ],
           )
