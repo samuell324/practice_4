@@ -61,6 +61,14 @@ class _MainWidgetState extends State<MainWidget> {
                     child: Container (
                       child: Image.asset('assets/images/enableAsset.png'),
                     ),
+                  ),
+                  SizedBox (
+                    width: 50,
+                  ),
+                  Expanded (
+                    child: Container (
+                      child: Image.asset('assets/images/smileButton.png'),
+                    ),
                   )
                 ],
               ),
