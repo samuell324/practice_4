@@ -51,6 +51,22 @@ class _MainWidgetState extends State<MainWidget> {
       child: Column(
         children: [
           Container(
+            height: 150,
+            child: Padding (
+              padding: EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded (
+                    child: Container (
+                      child: Image.asset('assets/images/enableAsset.png'),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Container(
               width: 300,
               height: 250,
               child: CustomPaint(
