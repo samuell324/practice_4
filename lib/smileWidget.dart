@@ -61,8 +61,11 @@ class _MainWidgetState extends State<MainWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
+    return Scaffold(
+      appBar: AppBar (
+        title: Text ('Practice 4'),
+      ),
+      body: Column(
         children: [
           Container(
               height: 150,
@@ -122,7 +125,6 @@ class _MainWidgetState extends State<MainWidget>
               Expanded(
                 child: GestureDetector(
                   onTap: () => setState(() {
-                    print(_radioValue);
                     _radioValue = 0;
                   }),
                   child: Container(
@@ -135,7 +137,6 @@ class _MainWidgetState extends State<MainWidget>
                 child: GestureDetector(
                   onTap: () => setState(() {
                     _radioValue = 1;
-                    print(_radioValue);
                   }),
                   child: Container(
                       child: Image.asset(_radioValue == 1
@@ -147,7 +148,6 @@ class _MainWidgetState extends State<MainWidget>
                 child: GestureDetector(
                   onTap: () => setState(() {
                     _radioValue = 2;
-                    print(_radioValue);
                   }),
                   child: Container(
                       child: Image.asset(_radioValue == 2

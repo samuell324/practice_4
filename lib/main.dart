@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
-import 'smileWidget.dart';
+import 'package:practice4/smileWidget.dart';
 
 void main() {
-  runApp(SmileWidgetPage());
+  runApp(CustomWidgetApp());
 }
 
-class SmileWidgetPage extends StatefulWidget {
-  @override
-  _SmileWidgetPageState createState() => _SmileWidgetPageState();
-}
-
-class _SmileWidgetPageState extends State<SmileWidgetPage> {
+class CustomWidgetApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(
-              title: Text('Practice 4'),
-            ),
-            body: MainWidget()));
+      home: MainWidget(),
+    );
   }
 }
