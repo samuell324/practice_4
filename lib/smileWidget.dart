@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice4/customButton.dart';
 import 'smileBody.dart';
 import 'smileMouth.dart';
 
@@ -25,10 +26,10 @@ class _MainWidgetState extends State<MainWidget>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar (
-        title: Text ('Practice 4'),
+      appBar: AppBar(
+        title: Text('Practice 4'),
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
               height: 150,
@@ -38,33 +39,26 @@ class _MainWidgetState extends State<MainWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: GestureDetector(
-                          onTap: () => setState(() {
-                            if (tapValue == 0) {
-                              tapValue++;
-                              animController.forward();
-                            } else {
-                              tapValue--;
-                              animController.reverse();
-                            }
-                          }),
-                          child: Container(
-                            child: Image.asset('assets/images/enableAsset.png'),
-                          ),
+                          child: CustomButton(
+                        text: Text('Enable ->'),
+                        icon: Icon(
+                          Icons.face,
+                          color: Colors.red,
+                          size: 50,
                         ),
-                      ),
+                      )),
                       SizedBox(
                         width: 50,
                       ),
                       Expanded(
-                        child: GestureDetector(
-                          child: Container(
-                            child: Image.asset(tapValue == 1
-                                ? 'assets/images/sadButton.png'
-                                : 'assets/images/smileButton.png'),
-                          ),
+                          child: CustomButton(
+                        text: Text('Smile/Sad'),
+                        icon: Icon(
+                          Icons.tag_faces,
+                          color: Colors.red,
+                          size: 50,
                         ),
-                      )
+                      ))
                     ],
                   ))),
           Container(
@@ -86,36 +80,60 @@ class _MainWidgetState extends State<MainWidget>
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                child: GestureDetector(
-                  onTap: () => setState(() {
+                child: CustomButton(
+                  text: Text(''),
+                  onPressed: () => setState(() {
                     _radioValue = 0;
                   }),
-                  child: Container(
-                      child: Image.asset(_radioValue == 0
-                          ? 'assets/images/asset1.png'
-                          : 'assets/images/asset1_en.png')),
+                  icon: _radioValue == 0
+                      ? Icon(
+                          Icons.trending_up,
+                          color: Colors.red,
+                          size: 50,
+                        )
+                      : Icon(
+                          Icons.trending_up,
+                          color: Colors.white,
+                          size: 50,
+                        ),
                 ),
               ),
               Expanded(
-                child: GestureDetector(
-                  onTap: () => setState(() {
+                child: CustomButton(
+                  text: Text(''),
+                  onPressed: () => setState(() {
                     _radioValue = 1;
                   }),
-                  child: Container(
-                      child: Image.asset(_radioValue == 1
-                          ? 'assets/images/asset2.png'
-                          : 'assets/images/asset2_en.png')),
+                  icon: _radioValue == 1
+                      ? Icon(
+                          Icons.check_circle,
+                          color: Colors.red,
+                          size: 50,
+                        )
+                      : Icon(
+                          Icons.check_circle,
+                          color: Colors.white,
+                          size: 50,
+                        ),
                 ),
               ),
               Expanded(
-                child: GestureDetector(
-                  onTap: () => setState(() {
+                child: CustomButton(
+                  text: Text(''),
+                  onPressed: () => setState(() {
                     _radioValue = 2;
                   }),
-                  child: Container(
-                      child: Image.asset(_radioValue == 2
-                          ? 'assets/images/asset3.png'
-                          : 'assets/images/asset3_en.png')),
+                  icon: _radioValue == 2
+                      ? Icon(
+                          Icons.crop_3_2,
+                          color: Colors.red,
+                          size: 50,
+                        )
+                      : Icon(
+                          Icons.crop_3_2,
+                          color: Colors.white,
+                          size: 50,
+                        ),
                 ),
               ),
             ],
