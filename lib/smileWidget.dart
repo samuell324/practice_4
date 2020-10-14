@@ -13,6 +13,7 @@ class _MainWidgetState extends State<MainWidget>
   var tapValue = 0;
   static AnimationController animController;
   var _radioValue;
+  var bottomControl = 0;
 
   @override
   void initState() {
@@ -59,7 +60,15 @@ class _MainWidgetState extends State<MainWidget>
                       Expanded(
                           child: CustomButton(
                               text: Text('Smile/Sad'),
-                              onPressed: () {},
+                              onPressed: () => setState((){
+                                if (tapValue == 1 && bottomControl ==0) {
+                                  animController.forward();
+                                  bottomControl++;
+                                } else if (tapValue == 1 && bottomControl == 1) {
+                                  animController.reverse();
+                                  bottomControl--;
+                                }
+                              }),
                               icon: tapValue == 0
                                   ? Icon(
                                       Icons.tag_faces,
