@@ -46,19 +46,31 @@ class _MainWidgetState extends State<MainWidget>
                           color: Colors.red,
                           size: 50,
                         ),
+                            onPressed: () => setState(() {
+                              if (tapValue == 0)
+                                tapValue++;
+                              else
+                                tapValue--;
+                            }),
                       )),
                       SizedBox(
                         width: 50,
                       ),
                       Expanded(
                           child: CustomButton(
-                        text: Text('Smile/Sad'),
-                        icon: Icon(
-                          Icons.tag_faces,
-                          color: Colors.red,
-                          size: 50,
-                        ),
-                      ))
+                              text: Text('Smile/Sad'),
+                              onPressed: () {},
+                              icon: tapValue == 0
+                                  ? Icon(
+                                      Icons.tag_faces,
+                                      color: Colors.white,
+                                      size: 50,
+                                    )
+                                  : Icon(
+                                      Icons.tag_faces,
+                                      color: Colors.red,
+                                      size: 50,
+                                    )))
                     ],
                   ))),
           Container(
