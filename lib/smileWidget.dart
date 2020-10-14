@@ -15,6 +15,18 @@ class _MainWidgetState extends State<MainWidget>
   var _radioValue;
   var bottomControl = 0;
 
+  animationFun() {
+    setState(() {
+      if (tapValue == 1 && bottomControl == 0) {
+        animController.forward();
+        bottomControl++;
+      } else if (tapValue == 1 && bottomControl == 1) {
+        animController.reverse();
+        bottomControl--;
+      }
+    });
+  }
+
   @override
   void initState() {
     animController = AnimationController(
@@ -47,12 +59,12 @@ class _MainWidgetState extends State<MainWidget>
                           color: Colors.red,
                           size: 50,
                         ),
-                            onPressed: () => setState(() {
-                              if (tapValue == 0)
-                                tapValue++;
-                              else
-                                tapValue--;
-                            }),
+                        onPressed: () => setState(() {
+                          if (tapValue == 0)
+                            tapValue++;
+                          else
+                            tapValue--;
+                        }),
                       )),
                       SizedBox(
                         width: 50,
@@ -60,15 +72,7 @@ class _MainWidgetState extends State<MainWidget>
                       Expanded(
                           child: CustomButton(
                               text: Text('Smile/Sad'),
-                              onPressed: () => setState((){
-                                if (tapValue == 1 && bottomControl ==0) {
-                                  animController.forward();
-                                  bottomControl++;
-                                } else if (tapValue == 1 && bottomControl == 1) {
-                                  animController.reverse();
-                                  bottomControl--;
-                                }
-                              }),
+                              onPressed: () => animationFun(),
                               icon: tapValue == 0
                                   ? Icon(
                                       Icons.tag_faces,
@@ -82,21 +86,24 @@ class _MainWidgetState extends State<MainWidget>
                                     )))
                     ],
                   ))),
-          Container(
-              width: 300,
-              height: 250,
-              child: CustomPaint(
-                painter: SmileyPainter(),
-                child: RotationTransition(
-                  turns: Tween(
-                    begin: 0.0,
-                    end: 0.5,
-                  ).animate(animController),
-                  child: CustomPaint(
-                    painter: Smile(),
+          RawMaterialButton(
+            onPressed: () => animationFun(),
+            child: Container(
+                width: 300,
+                height: 250,
+                child: CustomPaint(
+                  painter: SmileyPainter(),
+                  child: RotationTransition(
+                    turns: Tween(
+                      begin: 0.0,
+                      end: 0.5,
+                    ).animate(animController),
+                    child: CustomPaint(
+                      painter: Smile(),
+                    ),
                   ),
-                ),
-              )),
+                )),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
