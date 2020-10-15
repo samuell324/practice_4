@@ -1,9 +1,8 @@
-import 'dart:math' as Math;
 import 'package:flutter/material.dart';
+
 class Smile extends CustomPainter {
   //Mouth
   void paint(Canvas canvas, Size size) {
-    final center = Offset(150,130);
     drawMouth() {
       Paint paint = Paint()
         ..color = Colors.black

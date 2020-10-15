@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({this.icon, this.text, this.onPressed});
-  final Widget icon;
-  final Widget text;
+
+  final Icon icon;
+  final Text text;
   final Function onPressed;
 
   @override
@@ -12,10 +13,10 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       elevation: 2.0,
       fillColor: Colors.lightGreenAccent,
-      child: SizedBox (
-        width: 90 ,
+      child: SizedBox(
+        width: 90,
         height: 90,
-        child: Column (
+        child: Column(
           children: [
             icon,
             text,
@@ -33,6 +34,5 @@ class CustomButton extends StatelessWidget {
       padding: EdgeInsets.all(5.0),
       shape: CircleBorder(),
     );
-
   }
 }
