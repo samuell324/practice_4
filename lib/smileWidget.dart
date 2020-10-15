@@ -1,0 +1,127 @@
+import 'package:flutter/material.dart';
+import 'smileBody.dart';
+import 'smileMouth.dart';
+
+class MainWidget extends StatefulWidget {
+  @override
+  _MainWidgetState createState() => _MainWidgetState();
+}
+
+class _MainWidgetState extends State<MainWidget>
+    with SingleTickerProviderStateMixin {
+  var tapValue = 0;
+  static AnimationController animController;
+  var _radioValue;
+
+  @override
+  void initState() {
+    animController = AnimationController(
+      duration: const Duration(milliseconds: 400),
+      vsync: this,
+    );
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar (
+        title: Text ('Practice 4'),
+      ),
+      body: Column(
+        children: [
+          Container(
+              height: 150,
+              child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () => setState(() {
+                            if (tapValue == 0) {
+                              tapValue++;
+                              animController.forward();
+                            } else {
+                              tapValue--;
+                              animController.reverse();
+                            }
+                          }),
+                          child: Container(
+                            child: Image.asset('assets/images/enableAsset.png'),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                          child: Container(
+                            child: Image.asset(tapValue == 1
+                                ? 'assets/images/sadButton.png'
+                                : 'assets/images/smileButton.png'),
+                          ),
+                        ),
+                      )
+                    ],
+                  ))),
+          Container(
+              width: 300,
+              height: 250,
+              child: CustomPaint(
+                painter: SmileyPainter(),
+                child: RotationTransition(
+                  turns: Tween(
+                    begin: 0.0,
+                    end: 0.5,
+                  ).animate(animController),
+                  child: CustomPaint(
+                    painter: Smile(),
+                  ),
+                ),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => setState(() {
+                    _radioValue = 0;
+                  }),
+                  child: Container(
+                      child: Image.asset(_radioValue == 0
+                          ? 'assets/images/asset1.png'
+                          : 'assets/images/asset1_en.png')),
+                ),
+              ),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => setState(() {
+                    _radioValue = 1;
+                  }),
+                  child: Container(
+                      child: Image.asset(_radioValue == 1
+                          ? 'assets/images/asset2.png'
+                          : 'assets/images/asset2_en.png')),
+                ),
+              ),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => setState(() {
+                    _radioValue = 2;
+                  }),
+                  child: Container(
+                      child: Image.asset(_radioValue == 2
+                          ? 'assets/images/asset3.png'
+                          : 'assets/images/asset3_en.png')),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
