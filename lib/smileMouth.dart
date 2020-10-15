@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Smile extends CustomPainter {
   //Mouth
   void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
+    final center = Offset(150,130);
     drawMouth() {
       final smilePaint = Paint()
         ..style = PaintingStyle.fill

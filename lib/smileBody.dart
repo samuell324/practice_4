@@ -4,7 +4,7 @@ class SmileyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final radius = 100.0;
-    final center = Offset(size.width / 2, size.height / 2);
+    final center = Offset(150,120);
     // Body
     final paint = Paint()..color = Colors.yellow;
     canvas.drawCircle(center, radius, paint);
